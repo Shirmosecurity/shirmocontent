@@ -19,7 +19,7 @@ export default function RegisterPage() {
     <div style={{ minHeight: '100vh', background: '#0F0F1A', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 24 }}>
       <div style={{ width: '100%', maxWidth: 400 }}>
         <div style={{ textAlign: 'center', marginBottom: 32 }}>
-          <div style={{ fontSize: 28, fontWeight: 800, background: 'linear-gradient(135deg, #7C3AED, #06B6D4)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Aura AI</div>
+          <div style={{ fontSize: 28, fontWeight: 800, background: 'linear-gradient(135deg, #7C3AED, #06B6D4)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>ShirmoContent</div>
           <div style={{ color: '#64748B', marginTop: 8, fontSize: 14 }}>Create your free account</div>
         </div>
         <div style={{ background: '#16162A', border: '1px solid #2A2A45', borderRadius: 16, padding: 32 }}>
@@ -43,3 +43,4 @@ export default function RegisterPage() {
     </div>
   )
 }
+

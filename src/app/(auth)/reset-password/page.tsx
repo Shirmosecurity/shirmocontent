@@ -48,7 +48,7 @@ export default function ResetPasswordPage() {
   return (
     <div style={{minHeight:'100vh',background:'#0F0F1A',display:'flex',alignItems:'center',justifyContent:'center',padding:24}}>
       <div style={{width:'100%',maxWidth:420}}>
-        <div style={{fontSize:28,fontWeight:800,background:'linear-gradient(135deg,#7C3AED,#06B6D4)',WebkitBackgroundClip:'text',WebkitTextFillColor:'transparent',textAlign:'center',marginBottom:8}}>Aura AI</div>
+        <div style={{fontSize:28,fontWeight:800,background:'linear-gradient(135deg,#7C3AED,#06B6D4)',WebkitBackgroundClip:'text',WebkitTextFillColor:'transparent',textAlign:'center',marginBottom:8}}>ShirmoContent</div>
         <div style={{color:'#64748B',fontSize:14,textAlign:'center',marginBottom:28}}>Choose a new password</div>
         <div style={{background:'#16162A',border:'1px solid #2A2A45',borderRadius:16,padding:32}}>
           <Suspense><ResetForm /></Suspense>
@@ -57,3 +57,4 @@ export default function ResetPasswordPage() {
     </div>
   )
 }
+

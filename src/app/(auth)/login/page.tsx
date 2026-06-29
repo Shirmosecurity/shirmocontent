@@ -32,7 +32,7 @@ function LoginForm() {
   return (
     <div style={s.page}>
       <div style={{width:'100%',maxWidth:420}}>
-        <div style={{fontSize:28,fontWeight:800,background:'linear-gradient(135deg,#7C3AED,#06B6D4)',WebkitBackgroundClip:'text',WebkitTextFillColor:'transparent',textAlign:'center',marginBottom:8}}>Aura AI</div>
+        <div style={{fontSize:28,fontWeight:800,background:'linear-gradient(135deg,#7C3AED,#06B6D4)',WebkitBackgroundClip:'text',WebkitTextFillColor:'transparent',textAlign:'center',marginBottom:8}}>ShirmoContent</div>
         <div style={{color:'#64748B',fontSize:14,textAlign:'center',marginBottom:28}}>Sign in to your account</div>
         <div style={s.box}>
           {registered && <div style={{background:'#10B98122',border:'1px solid #10B98155',borderRadius:8,padding:'10px 12px',color:'#10B981',fontSize:13,marginBottom:16}}>✓ Account created! Sign in below.</div>}
@@ -64,3 +64,4 @@ function LoginForm() {
 export default function LoginPage() {
   return <Suspense><LoginForm /></Suspense>
 }
+

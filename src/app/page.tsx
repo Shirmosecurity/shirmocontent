@@ -3,7 +3,7 @@ export default function LandingPage() {
   return (
     <div style={{background:'#0F0F1A',minHeight:'100vh',color:'#E2E8F0',fontFamily:'system-ui,sans-serif'}}>
       <nav style={{display:'flex',alignItems:'center',justifyContent:'space-between',padding:'20px 80px',borderBottom:'1px solid #2A2A45'}}>
-        <div style={{fontSize:22,fontWeight:800,background:'linear-gradient(135deg,#7C3AED,#06B6D4)',WebkitBackgroundClip:'text',WebkitTextFillColor:'transparent'}}>Aura AI</div>
+        <div style={{fontSize:22,fontWeight:800,background:'linear-gradient(135deg,#7C3AED,#06B6D4)',WebkitBackgroundClip:'text',WebkitTextFillColor:'transparent'}}>ShirmoContent</div>
         <div style={{display:'flex',gap:32,alignItems:'center'}}>
           <Link href="/login" style={{color:'#A78BFA',fontSize:14,textDecoration:'none'}}>Sign In</Link>
           <Link href="/register" style={{padding:'9px 20px',borderRadius:8,fontWeight:700,fontSize:14,background:'linear-gradient(135deg,#7C3AED,#5B21B6)',color:'#fff',textDecoration:'none'}}>Start Free →</Link>
@@ -67,14 +67,15 @@ export default function LandingPage() {
       </section>
       <section style={{padding:'80px',textAlign:'center',borderTop:'1px solid #2A2A45'}}>
         <h2 style={{fontSize:48,fontWeight:900,marginBottom:16}}>Ready to put your marketing on <span style={{background:'linear-gradient(135deg,#7C3AED,#06B6D4)',WebkitBackgroundClip:'text',WebkitTextFillColor:'transparent'}}>autopilot?</span></h2>
-        <p style={{color:'#64748B',fontSize:18,marginBottom:40}}>Join hundreds of businesses generating more content, more leads, and more revenue with Aura AI.</p>
+        <p style={{color:'#64748B',fontSize:18,marginBottom:40}}>Join hundreds of businesses generating more content, more leads, and more revenue with ShirmoContent.</p>
         <Link href="/register" style={{padding:'16px 40px',borderRadius:10,fontWeight:700,fontSize:18,background:'linear-gradient(135deg,#7C3AED,#5B21B6)',color:'#fff',textDecoration:'none'}}>Start Free Today →</Link>
       </section>
       <footer style={{padding:'32px 80px',borderTop:'1px solid #2A2A45',display:'flex',justifyContent:'space-between',alignItems:'center'}}>
-        <div style={{fontSize:16,fontWeight:800,background:'linear-gradient(135deg,#7C3AED,#06B6D4)',WebkitBackgroundClip:'text',WebkitTextFillColor:'transparent'}}>Aura AI</div>
-        <div style={{fontSize:12,color:'#64748B'}}>© 2025 Aura AI. All rights reserved.</div>
+        <div style={{fontSize:16,fontWeight:800,background:'linear-gradient(135deg,#7C3AED,#06B6D4)',WebkitBackgroundClip:'text',WebkitTextFillColor:'transparent'}}>ShirmoContent</div>
+        <div style={{fontSize:12,color:'#64748B'}}>© 2025 ShirmoContent. All rights reserved.</div>
         <div style={{display:'flex',gap:20}}>{['Privacy','Terms','Contact'].map(l=><a key={l} href="#" style={{fontSize:12,color:'#64748B',textDecoration:'none'}}>{l}</a>)}</div>
       </footer>
     </div>
   )
 }
+

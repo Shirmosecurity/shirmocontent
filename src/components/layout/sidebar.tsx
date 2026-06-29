@@ -17,7 +17,7 @@ export function Sidebar({ workspaceName }: { workspaceName: string }) {
   return (
     <aside style={{ width: 220, background: '#16162A', borderRight: '1px solid #2A2A45', display: 'flex', flexDirection: 'column', padding: '24px 0', flexShrink: 0, minHeight: '100vh' }}>
       <div style={{ padding: '0 20px 28px', borderBottom: '1px solid #2A2A45' }}>
-        <div style={{ fontSize: 20, fontWeight: 800, background: 'linear-gradient(135deg, #7C3AED, #06B6D4)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Aura AI</div>
+        <div style={{ fontSize: 20, fontWeight: 800, background: 'linear-gradient(135deg, #7C3AED, #06B6D4)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>ShirmoContent</div>
         <div style={{ fontSize: 10, color: '#64748B', letterSpacing: 2, textTransform: 'uppercase', marginTop: 2 }}>Content Marketing OS</div>
       </div>
       <nav style={{ padding: '16px 12px', flex: 1 }}>
@@ -39,3 +39,4 @@ export function Sidebar({ workspaceName }: { workspaceName: string }) {
     </aside>
   )
 }
+
