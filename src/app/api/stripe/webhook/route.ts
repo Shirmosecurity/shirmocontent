@@ -11,7 +11,7 @@ export async function POST(req: Request) {
   } catch { return NextResponse.json({ error: 'Invalid signature' }, { status: 400 }) }
   switch (event.type) {
     case 'checkout.session.completed': {
-      const s = event.data.object as Stripe.CheckoutSession
+      const s = event.data.object as Stripe.Checkout.Session
       if (s.metadata?.userId && s.metadata?.plan) {
         await prisma.subscription.update({ where: { userId: s.metadata.userId }, data: { stripeSubscriptionId: s.subscription as string, plan: s.metadata.plan, status: 'active' } })
       }
@@ -26,3 +26,4 @@ export async function POST(req: Request) {
   }
   return NextResponse.json({ received: true })
 }
+
