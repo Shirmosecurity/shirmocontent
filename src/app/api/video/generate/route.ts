@@ -3,18 +3,30 @@ import { getServerSession } from 'next-auth'
 import { authOptions } from '@/lib/auth'
 import { generateVideoScript } from '@/lib/anthropic'
 import { prisma } from '@/lib/prisma'
+import { consumeCredit } from '@/lib/credits'
+
 export async function POST(req: Request) {
   try {
     const session = await getServerSession(authOptions)
     if (!session?.user?.id) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
     const { topic, format, workspaceId } = await req.json()
     if (!topic || !format || !workspaceId) return NextResponse.json({ error: 'Missing fields' }, { status: 400 })
+
+    const membership = await prisma.workspaceMember.findUnique({
+      where: { userId_workspaceId: { userId: session.user.id, workspaceId } },
+    })
+    if (!membership) return NextResponse.json({ error: 'Forbidden' }, { status: 403 })
+
+    const credit = await consumeCredit(session.user.id)
+    if (!credit.ok) return NextResponse.json({ error: 'Daily credit limit reached. Upgrade your plan for more.', creditsExhausted: true }, { status: 429 })
+
     const result = await generateVideoScript({ topic, format })
     await prisma.content.create({
       data: { workspaceId, type: 'video-script', industry: 'General', topic, hook: result.hook, primary: result.script, cta: result.cta, hashtags: result.hashtags || [], status: 'draft' },
     })
-    return NextResponse.json(result)
+    return NextResponse.json({ ...result, creditsRemaining: credit.remaining })
   } catch (error) {
+    console.error('Video generation error:', error)
     return NextResponse.json({ error: 'Generation failed' }, { status: 500 })
   }
 }
