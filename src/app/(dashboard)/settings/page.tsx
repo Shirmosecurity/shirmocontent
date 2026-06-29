@@ -10,6 +10,26 @@ const PLANS = [
   {name:'Agency',price:'$497/mo',plan:'agency',color:'#F59E0B',features:['Unlimited Everything','25 Workspaces','White-Label','All 7 AI Agents','Dedicated Support']},
 ]
 
+function DeleteAccountButton() {
+  const [confirming, setConfirming] = useState(false)
+  const [loading, setLoading] = useState(false)
+  async function handleDelete() {
+    if (!confirming) { setConfirming(true); return }
+    setLoading(true)
+    const res = await fetch('/api/user/delete', { method: 'DELETE' })
+    if (res.ok) { window.location.href = '/login' }
+    else { alert('Failed to delete account.'); setLoading(false); setConfirming(false) }
+  }
+  return (
+    <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+      <button onClick={handleDelete} disabled={loading} style={{ padding: '9px 18px', borderRadius: 8, fontWeight: 600, fontSize: 13, cursor: 'pointer', background: confirming ? '#EF4444' : 'transparent', color: confirming ? '#fff' : '#FCA5A5', border: '1px solid #7F1D1D', opacity: loading ? 0.6 : 1 }}>
+        {loading ? 'Deleting...' : confirming ? 'Yes, permanently delete' : 'Delete Account'}
+      </button>
+      {confirming && <button onClick={() => setConfirming(false)} style={{ padding: '9px 18px', borderRadius: 8, fontWeight: 600, fontSize: 13, cursor: 'pointer', background: 'transparent', color: '#64748B', border: '1px solid #2A2A45' }}>Cancel</button>}
+    </div>
+  )
+}
+
 export default function SettingsPage() {
   const {data:session,update} = useSession()
   const [credits,setCredits] = useState<Credits|null>(null)
@@ -132,7 +152,7 @@ export default function SettingsPage() {
             <div style={{...card,borderColor:'#7F1D1D55'}}>
               <div style={{fontSize:14,fontWeight:700,marginBottom:4,color:'#FCA5A5'}}>⚠️ Danger Zone</div>
               <div style={{fontSize:12,color:'#64748B',marginBottom:16}}>These actions are permanent and cannot be undone.</div>
-              <button style={{padding:'9px 18px',borderRadius:8,fontWeight:600,fontSize:13,cursor:'pointer',background:'transparent',color:'#FCA5A5',border:'1px solid #7F1D1D'}}>Delete Account</button>
+              <DeleteAccountButton />
             </div>
           </div>
         )}
@@ -140,3 +160,5 @@ export default function SettingsPage() {
     </>
   )
 }
+
+
